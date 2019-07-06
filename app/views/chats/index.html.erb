@@ -1,0 +1,7 @@
+<h1> Inbox </h1>
+<% User.all.each do |user|%>
+  <% if user.id != current_user.id %>
+    <strong><%= user&.username%>: <%= link_to "Let's chat", messages_path(receiver_id: user.id)%> </strong></br></br>  
+  <% end %>
+    <%#= hidden_field_tag 'receiver_id',  %>
+<% end%>

@@ -1,0 +1,19 @@
+<div class="message">
+  <div class="messageids" data-sender-id="<%= message.sender.id%>"></div>
+  <% if message.sender.email == current_user.email %>
+    <div class="messsage-content" style= "text-align: right">
+      <strong><%= message.sender.email %></strong> says:
+      <%= message.body %>
+      <br>
+      <small>at <%= l message.created_at, format: :short %></small>
+    </div> 
+  <% else %>
+    <div class="messsage-content" style= "text-align: left">
+      <strong><%= message.sender.email %></strong> says:
+      <%= message.body %>
+      <br>
+      <small>at <%= l message.created_at, format: :short %></small>
+    </div>  
+  <% end %> 
+  <hr>
+</div>
